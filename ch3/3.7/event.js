@@ -1,3 +1,4 @@
+// 스크립트느 에러가 안떠서 오류 검출이 힘듦
 const EventEmitter = require('events');
 
 const myEvent = new EventEmitter();
@@ -17,7 +18,7 @@ myEvent.once('event3', () => {
 myEvent.emit('event1'); // 이벤트 호출
 myEvent.emit('event2'); // 이벤트 호출
 
-myEvent.emit('event3');
+myEvent.emit('event3'); // once는 한번만 호출됨
 myEvent.emit('event3'); // 실행 안 됨
 
 myEvent.on('event4', () => {
@@ -34,3 +35,4 @@ myEvent.removeListener('event5', listener);
 myEvent.emit('event5'); // 실행 안 됨
 
 console.log(myEvent.listenerCount('event2'));
+myEvent.emit('event2'); // 이벤트 호출
