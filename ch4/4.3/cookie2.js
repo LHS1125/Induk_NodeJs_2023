@@ -35,7 +35,7 @@ http.createServer(async (req, res) => {
       const data = await fs.readFile('./cookie2.html');
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
       res.end(data);
-    } catch (err) {
+    } catch (err) { // 파일이 없으면 404로 해야되는데 서버가 무책임하게 500으로 내려준 것
       res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
       res.end(err.message);
     }

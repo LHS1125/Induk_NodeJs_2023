@@ -1,12 +1,14 @@
 const http2 = require('http2');
 const fs = require('fs');
 
+const WorkSpace = "./ch4/cert/"
+
 http2.createSecureServer({
-  cert: fs.readFileSync('도메인 인증서 경로'),
-  key: fs.readFileSync('도메인 비밀키 경로'),
+  cert: fs.readFileSync(WorkSpace + "server.crt"), // 도메인 인증서 경로
+  key: fs.readFileSync(WorkSpace + "server.key"), // 도메인 비밀키 경로
   ca: [
-    fs.readFileSync('상위 인증서 경로'),
-    fs.readFileSync('상위 인증서 경로'),
+    fs.readFileSync(WorkSpace + "rootCA.crt"), // 상위 인증서 경로
+    fs.readFileSync(WorkSpace + "rootCA.crt"), // 상위 인증서 경로
   ],
 }, (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
