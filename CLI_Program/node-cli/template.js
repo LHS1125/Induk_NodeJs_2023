@@ -117,6 +117,8 @@ const program = () => {
     });
     console.clear();
     rl.question('어떤 템플릿이 필요하십니까? ', typeAnswer);
+    // console.error('사용 방법 : cli html|express-router 파일명 [생성 경로]'); // 안내문구 출력(사용하려면 r1.close도 같이 주석해제)
+    // r1.close();
   } else {
     makeTemplate();
   }
